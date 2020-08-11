@@ -1,0 +1,10 @@
+.cell {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.cell.alive {
+  background-color: #000;
+}

@@ -1,4 +1,7 @@
 const GRID_SIZE = 50;
+const MAX_DEAD_CELL_AMOUNT = 3;
+const MIN_ALIVE_CELL_AMOUNT = 1;
+const MAX_ALIVE_CELL_AMOUNT = 4;
 
 export const _getNeighboursCount = (
   currentState: number[][],
@@ -29,11 +32,12 @@ export const _calculateNextCellState = (
 ): number => {
   let status = 0;
   if (
-    (cellsCount === 3 && !currentState) ||
-    (!!currentState && cellsCount > 1 && cellsCount < 4)
-  ) {
+    (cellsCount === MAX_DEAD_CELL_AMOUNT && !currentState) ||
+    (!!currentState &&
+      cellsCount > MIN_ALIVE_CELL_AMOUNT &&
+      cellsCount < MAX_ALIVE_CELL_AMOUNT)
+  )
     status = 1;
-  }
 
   return status;
 };
